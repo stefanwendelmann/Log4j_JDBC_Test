@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss a} %level %t %c %X{laufid} - %m %n"/>
+    </Console>
+    
+    <JDBC name="Lauflog" tableName="LAUFLOG">
+      <DynamicThresholdFilter key="myLogLvl" defaultThreshold="ERROR"
+                                  onMatch="ACCEPT" onMismatch="DENY">
+        <KeyValuePair key="TRACE" value="TRACE"/>
+        <KeyValuePair key="DEBUG" value="DEBUG"/>
+        <KeyValuePair key="INFO" value="INFO"/>
+        <KeyValuePair key="WARN" value="WARN"/>
+        <KeyValuePair key="FATAL" value="FATAL"/>
+      </DynamicThresholdFilter>
+      <!--<bufferSize>10</bufferSize>-->
+       <PoolingDriver 
+         connectionString="jdbc:sqlserver://localhost:51434;databaseName=SPortal" 
+         driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+         userName="sa" 
+         password="YOURPASSWORD">
+         <!--PoolableConnectionFactory default values--> 
+        <PoolableConnectionFactory 
+          autoCommitOnReturn="true"
+          cacheState="true"
+          defaultAutoCommit="true"
+          defaultCatalog=""
+          defaultQueryTimeoutSeconds="0"
+          defaultReadOnly="false"
+          defaultTransactionIsolation="-1"
+          fastFailValidation="true"
+          maxConnLifetimeMillis="-1"
+          maxOpenPreparedStatements="8"
+          poolStatements="true"
+          rollbackOnReturn="true"
+          validationQuery=""
+          validationQueryTimeoutSeconds="-1"
+        >
+        </PoolableConnectionFactory>
+      </PoolingDriver>
+      <Column name="SCHNITTSTELLE" pattern="%X{schnittstelle}"/>
+      <Column name="VERSION" pattern="%X{version}"/>
+      <Column name="LAUF" pattern="%X{laufid}"/>
+      <Column name="LEVEL" pattern="%level"/>
+      <Column name="EVENTDATE" isEventTimestamp="true"/>
+      <Column name="THREAD" pattern="%t"/>
+      <Column name="LOGGER" pattern="%logger"/>
+      <Column name="TEXT" pattern="%m"/>
+    </JDBC>
+  </Appenders>
+  
+  <Loggers>
+    <!--<AsyncLogger  name="IIPLAUFLOG" level="trace" additivity="false" includeLocation="true">-->
+    <Logger  name="IIPLAUFLOG" level="trace" additivity="false">
+      <AppenderRef ref="Lauflog"  />
+    </Logger >
+    <!--</AsyncLogger >-->
+    <Root level="info" additivity="false">
+      <AppenderRef ref="Console" />
+    </Root>
+  </Loggers>
+</Configuration>

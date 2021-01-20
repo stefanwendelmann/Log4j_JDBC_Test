@@ -1,0 +1,33 @@
+/**
+ * Author:  shoeltker
+ * Created: 20.01.2021
+ */
+
+USE [SPortal]
+GO
+/****** Object:  Table [dbo].[LAUFLOG]    Script Date: 20.01.2021 14:12:26 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LAUFLOG](
+	[SCHNITTSTELLE] [varchar](10) NOT NULL,
+	[VERSION] [varchar](255) NOT NULL,
+	[LAUF] [varchar](10) NOT NULL,
+	[UUID] [uniqueidentifier] NOT NULL,
+	[LEVEL] [nvarchar](10) NULL,
+	[EVENTDATE] [datetime] NULL,
+	[THREAD] [nvarchar](4000) NULL,
+	[LOGGER] [nvarchar](1000) NULL,
+	[TEXT] [nvarchar](max) NULL,
+ CONSTRAINT [PK_LAUFLOG] PRIMARY KEY CLUSTERED 
+(
+	[SCHNITTSTELLE] ASC,
+	[VERSION] ASC,
+	[LAUF] ASC,
+	[UUID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[LAUFLOG] ADD  DEFAULT (newsequentialid()) FOR [UUID]
+GO
