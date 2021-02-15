@@ -6,7 +6,7 @@ This Project represents the multithreading problem in combination with log4j2
 The Test shows that 
 the Threads are not running parallel:
 
-[src/amin/de/itout/test/log4j_jdbc_test/LoggerTest.java](src/test/de/itout/test/log4j_jdbc_test/LoggerTest.java)
+[src/main/de/itout/test/log4j_jdbc_test/LoggerTest.java](src/test/de/itout/test/log4j_jdbc_test/LoggerTest.java)
 
 ![Alt text](img/jdbc_logger_multithreading.gif?raw=true "Multithreading")
 
