@@ -7,7 +7,7 @@
     
     <JDBC name="Lauflog" tableName="LAUFLOG">
       <DynamicThresholdFilter key="myLogLvl" defaultThreshold="ERROR"
-                                  onMatch="ACCEPT" onMismatch="DENY">
+                              onMatch="ACCEPT" onMismatch="DENY">
         <KeyValuePair key="TRACE" value="TRACE"/>
         <KeyValuePair key="DEBUG" value="DEBUG"/>
         <KeyValuePair key="INFO" value="INFO"/>
@@ -15,12 +15,15 @@
         <KeyValuePair key="FATAL" value="FATAL"/>
       </DynamicThresholdFilter>
       <!--<bufferSize>10</bufferSize>-->
-       <PoolingDriver 
-         connectionString="jdbc:sqlserver://localhost:51434;databaseName=SPortal" 
-         driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
-         userName="sa" 
-         password="YOURPASSWORD">
-         <!--PoolableConnectionFactory default values--> 
+      <!--MODE=MSSQLServer-->
+<!--         connectionString="jdbc:sqlserver://localhost:51434;databaseName=SPortal" 
+         driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" -->
+      <PoolingDriver 
+        connectionString="jdbc:h2:file:./data;USER=admin;PASSWORD=admin;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:schema_h2.sql'" 
+        driverClassName="org.h2.Driver" 
+         userName="admin" 
+         password="admin">
+        <!--PoolableConnectionFactory default values--> 
         <PoolableConnectionFactory 
           autoCommitOnReturn="true"
           cacheState="true"
@@ -56,8 +59,13 @@
       <AppenderRef ref="Lauflog"  />
     </Logger >
     <!--</AsyncLogger >-->
-    <Root level="info" additivity="false">
+    <Root level="trace" additivity="false">
       <AppenderRef ref="Console" />
     </Root>
+    
+    <Logger name="org.h2" level="warn" additivity="false" >
+      <AppenderRef ref="Console" />
+    </Logger>
+    
   </Loggers>
 </Configuration>

@@ -3,8 +3,6 @@
  * Created: 20.01.2021
  */
 
-USE [SPortal]
-GO
 /****** Object:  Table [dbo].[LAUFLOG]    Script Date: 20.01.2021 14:12:26 ******/
 SET ANSI_NULLS ON
 GO

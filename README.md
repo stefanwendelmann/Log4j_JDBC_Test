@@ -33,7 +33,7 @@ Memory: 32768MB RAM
 # Steps to reproduce the problem
 
 - Create a Database named SPortal on the SQL Server `IF db_id(N'SPortal') IS NULL CREATE DATABASE SPortal COLLATE Latin1_General_CS_AS`
-- Create the schama on the Database (see [src/main/resources/schema.sql](src/test/resources/schema.sql))
+- Create the schama on the Database (see [src/main/resources/schema.sql](src/test/resources/schema_mssql.sql))
 - Edit the SQL Connection infos in src/main/resources/log4j2.xml 
 - Build it `mvn clean install`
 - copy the file Log4j_JDBC_Test-0.0.1-SNAPSHOT.jar to the lib dir
