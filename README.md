@@ -11,6 +11,19 @@ the Threads are not running parallel:
 ![Alt text](img/jdbc_logger_multithreading.gif?raw=true "Multithreading")
 
 
+I added a Flight Recording File under: [recording.jfr](recording.jfr)
+
+## Testsystem
+
+OS: Win10 Pro 2004 Build 19041.572
+
+Java: OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.282-b08, mixed mode)
+
+Processor: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (8 CPUs), ~2.0GHz
+
+Memory: 32768MB RAM
+
+
 # Requirements 
 
 - JDK 1.8 (I tested it with hotspot OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.282-b08, mixed mode))
@@ -24,6 +37,6 @@ the Threads are not running parallel:
 - Edit the SQL Connection infos in src/main/resources/log4j2.xml 
 - Build it `mvn clean install`
 - copy the file Log4j_JDBC_Test-0.0.1-SNAPSHOT.jar to the lib dir
-- Run it `java -XX:StartFlightRecording:filename=recording.jfr -cp lib\* de.itout.test.log4j_jdbc_test.LoggerTest`
+- Run it `cd target` `java -XX:StartFlightRecording:filename=recording.jfr -cp lib\* de.itout.test.log4j_jdbc_test.LoggerTest`
 - Analyse the threads for eg. with visualVM
 
