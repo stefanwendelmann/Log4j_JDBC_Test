@@ -59,11 +59,11 @@
   </Appenders>
   
   <Loggers>
-    <!--<AsyncLogger  name="IIPLAUFLOG" level="trace" additivity="false" includeLocation="true">-->
-    <Logger  name="IIPLAUFLOG" level="trace" additivity="false">
+    <AsyncLogger  name="IIPLAUFLOG" level="trace" additivity="false" includeLocation="true">
+    <!--<Logger  name="IIPLAUFLOG" level="trace" additivity="false">-->
       <AppenderRef ref="Async"  />
-    </Logger >
-    <!--</AsyncLogger >-->
+    <!--</Logger >-->
+    </AsyncLogger >
     <Root level="trace" additivity="false">
       <AppenderRef ref="Console" />
     </Root>

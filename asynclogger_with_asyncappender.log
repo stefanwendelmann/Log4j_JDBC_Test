@@ -1,0 +1,41 @@
+2021-02-16 08:49:34 AM TRACE main de.itout.test.log4j_jdbc_test.LoggerTest  - Enter
+2021-02-16 08:49:34 AM DEBUG main de.itout.test.log4j_jdbc_test.LoggerTest  - Start Test mit 1000 durchlõufen & 10 logs & 8 ThreadPool
+2021-02-16 08:52:11 AM TRACE main de.itout.test.log4j_jdbc_test.LoggerTest  - Exit
+2021-02-16 08:52:33,689 pool-1-thread-1 WARN AsyncLoggerConfigDisruptor: shutdown timed out after 0 MILLISECONDS
+2021-02-16 08:52:33,705 Log4j2-TF-1-AsyncLoggerConfig-1 ERROR Attempted to append to non-started appender Async
+2021-02-16 08:52:33,706 Log4j2-TF-1-AsyncLoggerConfig-1 ERROR An exception occurred processing Appender Async java.lang.IllegalStateException: AsyncAppender Async is not active
+        at org.apache.logging.log4j.core.appender.AsyncAppender.append(AsyncAppender.java:160)
+        at org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:156)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppender0(AppenderControl.java:129)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppenderPreventRecursion(AppenderControl.java:120)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppender(AppenderControl.java:84)
+        at org.apache.logging.log4j.core.config.LoggerConfig.callAppenders(LoggerConfig.java:543)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.callAppenders(AsyncLoggerConfig.java:127)
+        at org.apache.logging.log4j.core.config.LoggerConfig.processLogEvent(LoggerConfig.java:502)
+        at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:485)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.log(AsyncLoggerConfig.java:121)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.logToAsyncLoggerConfigsOnCurrentThread(AsyncLoggerConfig.java:169)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfigDisruptor$Log4jEventWrapperHandler.onEvent(AsyncLoggerConfigDisruptor.java:111)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfigDisruptor$Log4jEventWrapperHandler.onEvent(AsyncLoggerConfigDisruptor.java:97)
+        at com.lmax.disruptor.BatchEventProcessor.processEvents(BatchEventProcessor.java:168)
+        at com.lmax.disruptor.BatchEventProcessor.run(BatchEventProcessor.java:125)
+        at java.lang.Thread.run(Thread.java:748)
+
+2021-02-16 08:52:33,710 Log4j2-TF-1-AsyncLoggerConfig-1 ERROR Attempted to append to non-started appender Async
+2021-02-16 08:52:33,711 Log4j2-TF-1-AsyncLoggerConfig-1 ERROR An exception occurred processing Appender Async java.lang.IllegalStateException: AsyncAppender Async is not active
+        at org.apache.logging.log4j.core.appender.AsyncAppender.append(AsyncAppender.java:160)
+        at org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:156)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppender0(AppenderControl.java:129)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppenderPreventRecursion(AppenderControl.java:120)
+        at org.apache.logging.log4j.core.config.AppenderControl.callAppender(AppenderControl.java:84)
+        at org.apache.logging.log4j.core.config.LoggerConfig.callAppenders(LoggerConfig.java:543)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.callAppenders(AsyncLoggerConfig.java:127)
+        at org.apache.logging.log4j.core.config.LoggerConfig.processLogEvent(LoggerConfig.java:502)
+        at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:485)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.log(AsyncLoggerConfig.java:121)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfig.logToAsyncLoggerConfigsOnCurrentThread(AsyncLoggerConfig.java:169)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfigDisruptor$Log4jEventWrapperHandler.onEvent(AsyncLoggerConfigDisruptor.java:111)
+        at org.apache.logging.log4j.core.async.AsyncLoggerConfigDisruptor$Log4jEventWrapperHandler.onEvent(AsyncLoggerConfigDisruptor.java:97)
+        at com.lmax.disruptor.BatchEventProcessor.processEvents(BatchEventProcessor.java:168)
+        at com.lmax.disruptor.BatchEventProcessor.run(BatchEventProcessor.java:125)
+        at java.lang.Thread.run(Thread.java:748)
