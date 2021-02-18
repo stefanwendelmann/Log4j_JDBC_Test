@@ -21,7 +21,7 @@ public class LoggerTest
   public void testProfiling() throws InterruptedException
   {
     logg.traceEntry();
-    int runs = 1_000;
+    int runs = 10_000;
     int logs = 10;
     int threadPoolSize = 8;
     logg.debug("Start Test mit " + runs + " durchläufen & " + logs + " logs & " + threadPoolSize + " ThreadPool");
@@ -38,6 +38,8 @@ public class LoggerTest
     {
 //      logg.info("Not Ready yet ");
     }
+    logg.debug("Shutting down the LogManager!");
+//    LogManager.shutdown();
     logg.traceExit();
     Thread.sleep(10_000L);
   }
