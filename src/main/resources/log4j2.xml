@@ -65,6 +65,12 @@
       <!--MODE=MSSQLServer-->
       <!--        connectionString="jdbc:postgresql://localhost:5432/sportal"
       driverClassName="org.postgresql.Driver" -->
+      
+      <!--H2 Example fast -->
+<!--        connectionString="jdbc:h2:file:./data;USER=admin;PASSWORD=admin;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:schema_h2.sql'" 
+        driverClassName="org.h2.Driver" 
+         userName="admin" 
+         password="admin"-->
       <PoolingDriver 
         connectionString="jdbc:sqlserver://localhost:51434;databaseName=SPortal" 
         driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
